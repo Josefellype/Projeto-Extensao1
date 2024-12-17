@@ -6,7 +6,10 @@ WORKDIR /app
 
 # Instala dependências do sistema operacional necessárias
 RUN apt-get update && apt-get install -y \
+    gcc \
+    build-essential \
     libmariadb-dev \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia os arquivos de requisitos para o contêiner
@@ -25,5 +28,4 @@ ENV PYTHONUNBUFFERED 1
 # Expõe a porta padrão do Django
 EXPOSE 8000
 
-# Comando para iniciar o servidor Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Comando
