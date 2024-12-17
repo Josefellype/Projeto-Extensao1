@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Instala dependências do sistema operacional necessárias
 RUN apt-get update && apt-get install -y \
-    libmysqlclient-dev \
+    libmariadb-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia os arquivos de requisitos para o contêiner
