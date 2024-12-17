@@ -1,5 +1,5 @@
 Django==5.1.2
-mysqlclient==2.2.0
+mariadb==1.1.7
 requests==2.31.0
 python-decouple==3.8
 python-docx==0.8.11
