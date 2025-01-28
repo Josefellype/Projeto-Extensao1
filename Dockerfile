@@ -7,7 +7,9 @@ WORKDIR /app
 # Instala dependências do sistema operacional necessárias
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils \
-    libmysqlclient-dev \
+    default-libmysqlclient-dev \
+    gcc \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia os arquivos de requisitos para o contêiner
