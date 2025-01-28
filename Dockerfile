@@ -5,11 +5,9 @@ FROM python:3.13-slim
 WORKDIR /app
 
 # Instala dependências do sistema operacional necessárias
-RUN apt-get update && apt-get install -y \
-    gcc \
-    build-essential \
-    libmariadb-dev \
-    libssl-dev \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-utils \
+    libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia os arquivos de requisitos para o contêiner
@@ -28,4 +26,5 @@ ENV PYTHONUNBUFFERED 1
 # Expõe a porta padrão do Django
 EXPOSE 8000
 
-# Comando
+# Comando para iniciar o servidor Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
